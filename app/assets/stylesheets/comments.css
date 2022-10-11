@@ -1,0 +1,32 @@
+.comment-card {
+  background: white;
+  border: 1px solid var(--background);
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  padding: 8px 16px;
+  gap: 8px;
+}
+
+.comment-options {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.comment__content {
+  width: 100%;
+}
+
+.comment-edit__content {
+  width: 100%;
+  appearance: none;
+  background: none;
+  border: none;
+  border: 1px solid var(--secundary-text);
+  padding: 0.5em 0.75em;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+}

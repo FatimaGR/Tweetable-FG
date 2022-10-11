@@ -1,0 +1,56 @@
+<div class = "container-sm">
+  <div class = "header">
+    <h1 class = "content-lg bold">Home</h1>
+  </div>
+  
+  <% if logged_in? %>
+    <div class = "tweet-card">
+      <% if logged_in? && current_user.avatar.attached?%>
+        <%= image_tag current_user.avatar, class: "avatar"%>
+      <%else%>
+        <%= image_tag("default_avatar.png")%>
+      <%end%>
+
+      <%= form_for :tweet, url: tweets_path do |form|%>
+        <div class = "tweet__content">
+          <%= form.text_area :body, size: "60%", placeholder: "Remember to think before write...", class: "tweet-form__content" %>        
+          <%= form.submit "Tweet", class: "button button--sm button--primary flex-end" %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+  
+  <div>
+    <% @tweets.each do |tweet| %>
+      <div class = "tweet-card">
+        <div>
+          <% if tweet.user.avatar.attached?%>
+            <%= image_tag tweet.user.avatar, class: "avatar"%>
+          <%else%>
+            <%= image_tag("default_avatar.png")%>
+          <%end%>
+        </div>
+        <div class = "tweet__content">
+          <div class = "gap-8">
+            <a class = "bold" ><%= tweet.user.name %></a>
+            <a class = "secondary-text"> @<%= tweet.user.username %></a>
+            <a class = "secondary-text"><%= time_ago_in_words(tweet.created_at)%></a>
+          </div>
+          <p><%= tweet.body %></p>
+          <div class = "tweet-card__options">
+            <div>
+              <a><%= link_to image_tag("icons/comment_icon.png"), tweet_path(tweet) %></a>
+              <a class = "secondary-text"><%= tweet.comments_count %></a>
+            </div>
+            <% if logged_in? && current_user.id == tweet.user_id %>
+              <div>
+                <%= link_to image_tag("icons/delete_icon.png"), tweet_path(tweet), data: { turbo_method: :delete, turbo_confirm: "Are you Sure?" } %>
+                <%= link_to image_tag("icons/edit_icon.png"), edit_tweet_path(tweet) %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    <% end %> 
+  </div>
+</div>

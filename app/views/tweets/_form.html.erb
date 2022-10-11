@@ -1,0 +1,7 @@
+<%= form_with model: tweet do |form| %>
+  <div class = "tweet__content">
+    <p class = "center-text mb-4"><%= flash[:message] %></p>
+    <%= form.text_area :body, class: "tweet-edit__content mb-2" %>        
+    <%= form.submit "Edit", class: "button button--sm button--primary" %>
+  </div>
+<% end %>

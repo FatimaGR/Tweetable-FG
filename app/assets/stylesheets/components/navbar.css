@@ -1,0 +1,35 @@
+.navbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  /* flex-wrap: wrap; */
+  gap: 10px;
+  padding: 8px 16px;
+  background-color: var(--background2);
+}
+
+.navbar-text {
+  text-decoration: none;
+  color: var(--primary);
+  text-transform: capitalize;
+}
+
+.navbar-message {
+  text-decoration: none;
+  color: var(--primary-hover);
+  text-transform: capitalize;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  position: relative;
+  padding: 16px;
+  background-color: white;
+}
+
+.header-text {
+  text-transform: capitalize;
+}

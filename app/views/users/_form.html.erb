@@ -1,0 +1,63 @@
+<%= form_with(model: user, url: "/profile") do |form| %>
+  <div class = "form-card">
+    <section class = "section-sm" >
+      <p class = "center-text mb-4"><%= flash[:message] %></p>
+      <div>
+        <%= form.label :email %>
+        <div>
+          <%= form.text_field :email, class: "input__container mb-2" %>
+        </div>
+      </div>
+
+      <div>
+        <%= form.label :username %>
+        <div>
+          <%= form.text_field :username, class: "input__container mb-2" %>
+        </div>        
+      </div>
+
+      <div>
+        <%= form.label :name %>
+        <div>
+          <%= form.text_field :name, class: "input__container mb-2" %>
+        </div>        
+      </div>
+    
+      <div>
+        <%= form.label :avatar %>
+        <div>
+          <%= form.file_field :avatar, accept: "image/png, image/jpeg", class: "file__container mb-2" %>
+        </div>
+      </div>
+      
+      <div>
+        <div>
+          <% if logged_in? %>
+            <p class = "mb-2">Password (leave blank if you don't want to change it)</p>
+          <% else %>
+            <%= form.label :password %>
+          <% end %>
+        </div>
+        <%= form.password_field :password, placeholder: "******", class: "input__container mb-2" %>
+      </div>
+
+      <div>
+        <div>
+          <% if logged_in? %>
+            <p class = "mb-2">Current password (we need your current password to confirm your changes)</p>
+          <% else %>
+            <%= form.label :password_confirmation %>
+          <% end %>
+        </div>
+        <%= form.password_field :password_confirmation, placeholder: "******", class: "input__container mb-2" %>
+      </div>
+      
+      <p class = "center-text"><%= form.submit "Submit", class: "button button--lg button--primary mb-2" %></p>
+      <% if logged_in? %>
+        <p class = "center-text"><%= link_to "Cancel my account", user_path(user), data: { turbo_method: :delete, turbo_confirm: "Are you Sure?" }, class: "navbar-text mb-2" %></p>
+      <%else%>
+        <p class = "center-text"><%= link_to "login", "/login", class: "navbar-text mb-2"%></p>
+      <%end%>
+    </section>
+  </div>
+<% end %>

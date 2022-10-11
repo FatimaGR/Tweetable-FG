@@ -1,0 +1,23 @@
+<%=form_with(url: sessions_path) do |form|%>
+  <div class = "form-card">
+    <section class = "section-sm" >
+      <p class = "center-text mb-4"><%= flash[:message] %></p>
+      <div>
+        <%= form.label :email %>
+        <div>
+          <%= form.text_field :email, class: "input__container mb-2" %>
+        </div>
+      </div>
+
+      <div>
+        <%= form.label :password %>
+        <div>
+          <%= form.password_field :password, class: "input__container mb-2" %>
+        </div>
+      </div>
+
+      <p class = "center-text"><%= form.submit "Submit", class: "button button--lg button--primary mb-2" %></p>
+      <p class = "center-text"><%= link_to "sing up", new_user_path, class: "navbar-text" %></p>
+    </section>
+  </div>
+<%end%>

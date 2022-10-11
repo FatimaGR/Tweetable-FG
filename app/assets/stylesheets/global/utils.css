@@ -1,0 +1,72 @@
+/* Margins */
+.mb-8 {
+  margin-bottom: 2rem;
+}
+
+.mb-4 {
+  margin-bottom: 1rem;
+}
+
+.mb-2 {
+  margin-bottom: 0.5rem;
+}
+
+.mb-1 {
+  margin-bottom: 0.25rem;
+}
+
+.mb-24px {
+  margin-bottom: 1.5rem;
+}
+
+.gap-8 {
+  gap: 8px;
+}
+
+.pad-16 {
+  padding: 0px 16px;
+}
+
+/* Flex & Grid */
+.flex {
+  display: flex;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.wrap {
+  flex-wrap: wrap;
+}
+
+.space-between {
+  justify-content: space-between;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.center-text {
+  text-align: center;
+}
+
+/* Width */
+.fit-content {
+  width: fit-content;
+}
+
+.width-content {
+  width: 100%;
+}
+
+.flex-end { 
+  display: flex;
+  justify-content:flex-end;
+}
+
+/* Colors */
+.secondary-text {
+  color: var(--secundary-text);
+}
