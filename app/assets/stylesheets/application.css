@@ -23,5 +23,5 @@
 p {
   color: var(--black);
   text-decoration: none;
-  font-family: "Roboto";
+  font-family: "Roboto", sans-serif;
 }
